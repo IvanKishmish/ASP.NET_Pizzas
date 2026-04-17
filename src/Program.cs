@@ -1,3 +1,4 @@
+using AspNet1;
 using AspNet1.Database;
 using AspNet1.Services.Abstractions;
 using AspNet1.Services.Implementations;
@@ -49,6 +50,9 @@ if (app.Environment.IsDevelopment())
 
 // Перенаправлення HTTP запитів на HTTPS для забезпечення безпеки передачі даних 
 app.UseHttpsRedirection();
+
+//викликаємо автоматичну міграцію
+app.MigrateDb();
 
 // Маршрутизація для контролерів. Цей метод знаходить відповідний Action 
 // у контролері на основі URL та HTTP-методу запиту
