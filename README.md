@@ -44,5 +44,5 @@
 
 ### 1. Клонування репозиторію
 ```bash
-git clone [https://github.com/IvanKishmish/ASP.NET_Pizzas.git](https://github.com/IvanKishmish/ASP.NET_Pizzas.git)
+git clone https://github.com/IvanKishmish/ASP.NET_Pizzas.git
 cd ASP.NET_Pizzas
