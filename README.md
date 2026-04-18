@@ -1,11 +1,11 @@
-# 🍕 Pizza API — My First ASP.NET Core Project
+# 🍕 Pizza & Order API — My First ASP.NET Core Project
 
 ![C#](https://img.shields.io/badge/c%23-%23239120.svg?style=for-the-badge&logo=c-sharp&logoColor=white)
-![.NET](https://img.shields.io/badge/.NET-512BD4?style=for-the-badge&logo=.net&logoColor=white)
+![.NET](https://img.shields.io/badge/.NET-8.0-512BD4?style=for-the-badge&logo=.net&logoColor=white)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
 ![Rider](https://img.shields.io/badge/Rider-000000?style=for-the-badge&logo=jetbrains&logoColor=white&labelColor=000000)
 
-Вітаю! Це мій перший повноцінний бекенд-проєкт, створений на базі **ASP.NET Core 8**. Проєкт реалізує RESTful API для керування асортиментом піцерії, з фокусом на архітектуру та безпеку даних.
+Вітаю! Це мій перший повноцінний бекенд-проєкт на **ASP.NET Core 8**. Почавши з простого каталогу піц, я розвинув його до **системи керування замовленнями**, де реалізована логіка взаємодії між сутностями, автоматичний розрахунок вартості та сучасна архітектура.
 
 ---
 
@@ -13,18 +13,18 @@
 
 * **Framework:** ASP.NET Core 8 (Web API)
 * **Database:** PostgreSQL + Entity Framework Core
-* **Validation:** FluentValidation (для вхідних DTO)
-* **Security:** DotNetEnv (приховування конфіденційних даних у `.env`)
+* **Validation:** FluentValidation (сувора перевірка вхідних даних)
+* **Security:** DotNetEnv (конфігурація через `.env` файли)
 * **Architecture:** Dependency Injection, Service Layer, DTO Pattern, Extension Methods
 
 ---
 
 ## ✨ Ключові особливості
 
--   ✅ **Чистий код:** Використання методів розширення (`DataExtensions.cs`) для розвантаження `Program.cs`.
--   ✅ **Ефективність:** Застосування `.AsNoTracking()` для швидкого читання та `ExecuteUpdate`/`ExecuteDelete` для масових операцій.
--   ✅ **Безпека:** Рядки підключення винесені в змінні оточення.
--   ✅ **Валідація:** Сувора перевірка даних (ціна, довжина назви тощо) перед потраплянням у базу.
+- ✅ **PizzaOrderSystem:** Повноцінна система замовлень. Кожне замовлення прив'язане до конкретної піци через зовнішній ключ (Foreign Key).
+- ✅ **Бізнес-логіка в сервісах:** Розрахунок `TotalPrice` відбувається на стороні сервера в `OrderService`, що гарантує безпеку (клієнт не може підробити ціну).
+- ✅ **Автоматизація БД:** Завдяки кастомним методам розширення (`DataExtensions.cs`), міграції застосовуються автоматично при старті застосунку.
+- ✅ **Професійний мапінг:** Для кожної операції створено окремі DTO (`CreateOrderDto`, `UpdateOrderDto`, `OrderDto`), щоб не виставляти внутрішні сутності БД назовні.
 
 ---
 
@@ -32,11 +32,11 @@
 
 | Папка | Опис |
 | :--- | :--- |
-| **Controllers** | Ендпоінти API та обробка HTTP-запитів |
-| **Services** | Бізнес-логіка (Abstractions & Implementations) |
-| **Database** | DbContext, сутності (Entities) та міграції |
-| **Dtos** | Моделі даних для безпечного обміну з клієнтом |
-| **Validators** | Класи валідації FluentValidation |
+| **Controllers** | Обробка HTTP-запитів (`PizzaController`, `OrderController`) |
+| **Services** | Реалізація бізнес-логіки та взаємодія з БД |
+| **Database** | DbContext, сутності та автоматичні міграції |
+| **Dtos** | Моделі даних для безпечного обміну (Data Transfer Objects) |
+| **Validators** | Класи FluentValidation для перевірки даних |
 
 ---
 
@@ -44,4 +44,5 @@
 
 ### 1. Клонування репозиторію
 ```bash
-git clone [https://github.com/IvanKishmish/AspNet1.git](https://github.com/IvanKishmish/AspNet1.git)
+git clone [https://github.com/IvanKishmish/ASP.NET_Pizzas.git](https://github.com/IvanKishmish/ASP.NET_Pizzas.git)
+cd ASP.NET_Pizzas
