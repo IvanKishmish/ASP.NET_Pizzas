@@ -10,7 +10,7 @@ namespace AspNet1.Controllers;
 public class PizzaController(IPizzaService pizzaService) : ControllerBase
 {
     [HttpGet]
-    public async Task<ActionResult<List<Pizza>>> GetAll()
+    public async Task<ActionResult<List<PizzaDto>>> GetAll()
     {
         var pizzas = await pizzaService.GetAllAsync();
 
@@ -20,7 +20,7 @@ public class PizzaController(IPizzaService pizzaService) : ControllerBase
     }
 
     [HttpGet("{id}")]
-    public async Task<ActionResult<Pizza>> GetById(Guid id)
+    public async Task<ActionResult<PizzaDto>> GetById(Guid id)
     {
         var pizza = await pizzaService.GetByIdAsync(id);
         if(pizza is null) return NotFound();

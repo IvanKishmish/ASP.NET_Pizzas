@@ -8,4 +8,5 @@ public class AppDbContext(DbContextOptions<AppDbContext> options)
 {
     // public DbSet<Pizza> Pizzas { get; set; }
     public DbSet<Pizza> Pizzas => Set<Pizza>();
+    public DbSet<Order> Orders => Set<Order>();
 }

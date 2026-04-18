@@ -29,6 +29,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 // Реєструємо бізнес-сервіси як Scoped
 // Scoped гарантує, що для кожного HTTP-запиту буде створено свій екземпляр сервісу
 builder.Services.AddScoped<IPizzaService, PizzaService>();
+builder.Services.AddScoped<IOrderService, OrderService>();
 
 // Додаємо підтримку контролерів. Це реєструє всі класи, що наслідуються від ControllerBase 
 builder.Services.AddControllers();
